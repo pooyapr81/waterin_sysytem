@@ -1,0 +1,8 @@
+# compile vhdl design source files
+vhdl xil_defaultlib  \
+"../../../../pooya_parva.srcs/sources_1/new/main.vhd" \
+"../../../../pooya_parva.srcs/sources_1/new/seg.vhd" \
+"../../../../pooya_parva.srcs/sim_1/new/watering_system_tb.vhd" \
+
+# Do not sort compile order
+nosort
