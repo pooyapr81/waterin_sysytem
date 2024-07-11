@@ -75,22 +75,22 @@ seg_device : seg PORT MAP (display => seg_input, seg => seg_O);
 	END PROCESS process1;
 
 
-	process2 : PROCESS (m_i, l_i, t_i , present_state)
+	process2 : PROCESS (M_i, L_i, T_i , present_state)
 		BEGIN
 			CASE present_state IS
 				WHEN ST0 =>
-					IF (t_i = '1' or l_i = '1') and (m_i <= "001") THEN
+					IF (T_i = '1' or L_i = '1') and (M_i <= "001") THEN
 						 next_state <= ST1; 
-					ELSIF (t_i = '0' and l_i = '0') and (m_i <= "011") THEN
+					ELSIF (T_i = '0' and L_i = '0') and (M_i <= "011") THEN
 						 next_state <= ST1; 
 					ELSE 
 						next_state <= ST0;
 					END IF;
 
 				WHEN ST1 =>
-					IF (m_i >= "111") THEN
+					IF (M_i >= "111") THEN
 						 next_state <= ST0; 
-					ELSIF (t_i = '1' or l_i = '1') and (m_i >= "011") THEN
+					ELSIF (T_i = '1' or L_i = '1') and (M_i >= "011") THEN
 						 next_state <= ST0;
 					ELSE 
 						next_state <= ST1;
@@ -101,7 +101,7 @@ seg_device : seg PORT MAP (display => seg_input, seg => seg_O);
 	END PROCESS process2;
 	
 
-	m_o <= m_i;
-	t_o <= t_i;
-	l_o <= l_i;
+	M_o <= M_i;
+	T_o <= T_i;
+	L_o <= L_i;
 end Behavioral;
